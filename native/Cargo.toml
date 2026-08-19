@@ -1,0 +1,43 @@
+[package]
+name = "native"
+version = "0.1.0"
+edition = "2024"
+
+# -----------------------------------------------------------------------------
+# Library Configuration
+# -----------------------------------------------------------------------------
+# This section defines how the Rust crate is compiled.
+#
+# - cdylib: Required for Android (.so), Windows (.dll), and Linux (.so).
+#           This allows the library to be loaded dynamically by the Flutter engine.
+#
+# - staticlib: Required for iOS (.a).
+#              iOS links the Rust code statically into the app executable.
+# -----------------------------------------------------------------------------
+[lib]
+crate-type = ["cdylib", "staticlib"]
+
+# -----------------------------------------------------------------------------
+# Dependencies
+# -----------------------------------------------------------------------------
+[dependencies]
+flutter_rust_bridge = "=2.12.0"
+
+# Async runtime required to do Bluetooth/Networking
+tokio = {version = "1", features = ["full"] }
+
+# Cross-platform Bluetooth Low Energy (BLE) library
+btleplug = "0.11"
+
+# Bluetooth UUID helper
+uuid = "1"
+
+# Serialization framework
+# Allows Rust structs (Telemetry) to be converted into Dart objects
+serde = { version = "1", features = ["derive"] }
+
+once_cell = "1.19"
+
+serialport = "4.3.0" #chequear
+log = "0.4.31"
+futures = "0.3.32"

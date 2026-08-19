@@ -1,0 +1,34 @@
+# flutter_rust_bridge.yaml
+# Configuration file for the Rust-Dart FFI code generation.
+
+# ------------------------------------------------------------------------------
+# Input Configuration (Rust Side)
+# ------------------------------------------------------------------------------
+
+# Specifies the root directory of Rust crate
+# Serves as the base path for resolving module references
+
+rust_root: native
+
+# Defines the entry point module for the Rust API
+rust_input: crate::api
+
+# ------------------------------------------------------------------------------
+# Output Configuration (Bridge Generation)
+# ------------------------------------------------------------------------------
+
+# Destination path for the generated Dart bridge code
+# Layer to adhere to the MVVM architecture patterns
+dart_output: lib/model/bridge_generated.dart
+
+# Destination path for the generated Rust bridge code
+# It handles the low-level FFI bindings and should not be edited manually
+rust_output: native/src/bridge_generated.rs
+
+# ------------------------------------------------------------------------------
+# Class Naming
+# ------------------------------------------------------------------------------
+
+# Defines the name of the main Dart class used to interact with the Rust backend
+# It will be instantiated in the Service layer
+dart_entrypoint_class_name: NativeConfig
