@@ -177,9 +177,7 @@ pub fn execute_on_hardware<R>(operation: impl FnOnce(&BluetoothDriver) -> Result
     result
 }
 
-// -----------------------------------------------------------------------------
-// GPIO AND HARDWARE COMMANDS (Clean - No MAC needed)
-// -----------------------------------------------------------------------------
+// GPIO AND HARDWARE COMMANDS
 
 /// Reads a 32-bit GPIO register
 pub fn read_gpio_u32(addr: u8) -> Result<u32, String> {
